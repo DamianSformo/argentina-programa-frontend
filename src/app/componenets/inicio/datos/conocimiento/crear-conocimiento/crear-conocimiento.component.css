@@ -1,0 +1,54 @@
+
+
+form{
+    padding-right: 30px;
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+mat-label{
+    color:gray
+}
+
+mat-form-field {
+    flex-direction: column;
+    width: 98%;
+    align-items: flex-start;
+}
+
+.mat-dialog-content{
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+.nav{
+    padding: 5px;
+    padding-right: 8px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+h2{
+    font-weight: 200;
+    display: flex;
+}
+
+.sub{
+    margin-top: 20px;
+}
+
+.redondo{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border-width: 1px;
+    border-color: darkgray;
+    margin: 6px;
+    margin-top: 7px;
+    margin-left: 9px;
+    font-weight: 200;
+  }

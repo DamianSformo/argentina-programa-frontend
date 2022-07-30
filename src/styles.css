@@ -1,0 +1,144 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat";
+}
+
+body{
+    background-color: #E4E6E9; 
+} 
+
+hr{
+    margin-bottom: 0px;
+}
+
+section{
+    background-color: #EDEEF0;
+    margin: 25px 0px 25px 0px;
+    margin-left: 20%;
+    margin-right: 25%;
+    border-radius: 10px;
+    box-shadow:5px 5px 50px -45px  black;
+    width: 45%;
+    
+}
+
+.elemento{
+    align-items: center;
+}
+
+li{
+    list-style: none;
+}
+
+.tarjeta h3{
+    font-weight: 300;
+    
+    font-size: 22px;
+}
+
+section.tarjeta .titulo{
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    text-transform: uppercase;
+}
+
+section.tarjeta p{
+    padding-bottom: 3px;
+    padding-top: 4px;
+    font-size: 12px;
+}
+
+section.tarjeta span{
+    padding-bottom: 3px;
+    padding-top: 3px;
+    font-size: 12px;
+}
+
+
+
+.blobo{
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+
+.tarjeta .descripciones{
+    padding-left: 0px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.tarjeta .encabezado{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    padding-left: 0px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.tarjeta .encabezado .botones{
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+
+.descripciones .elemento{
+    display: flex;
+}
+
+
+.descripciones .elemento .descripcion{
+    margin: 10px;
+}
+
+.descripciones .elemento .descripcion .puesto{
+    font-weight: 400;
+}
+
+.descripciones .elemento .descripcion .texto-dos{
+    color: grey;
+    font-weight: 200;
+}
+
+.descripciones .elemento .descripcion .lugar{
+    color: grey;
+    font-weight: 200;
+}
+
+.descripciones .elemento .foto{
+    margin: 15px;
+    padding: 0px;
+    width: 55px;
+    height: 55px;
+}
+
+
+.linea{
+    opacity: 20%;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@media (max-width: 768px) {
+    section{
+        margin-left: 8%;
+        margin-right: 7%;
+        width: 85%;
+    }
+  }

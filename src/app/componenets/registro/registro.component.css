@@ -1,0 +1,47 @@
+.contenedor{
+    width: 40%;
+    margin: auto;
+    
+}
+
+mat-stepper{
+    margin-top: 5px;
+    background-color: #E4E6E9; 
+}
+
+.fila{
+    
+    width: 100%;
+}
+
+.filamodulo{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.tipo {
+    width: 35%;
+}
+
+.documento {
+    width: 60%;
+}
+
+.provincia {
+    width: 65%;
+}
+
+.cp {
+    width: 30%;
+}
+
+.sub{
+    margin-top: 25px;
+}
+
+.mat-form-field-wrapper{
+
+    margin-top: 10px;
+
+}

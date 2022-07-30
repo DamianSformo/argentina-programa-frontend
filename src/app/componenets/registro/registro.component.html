@@ -1,0 +1,131 @@
+
+<div class="contenedor">
+
+
+
+    <mat-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Datos personales</ng-template>
+                
+                    <mat-form-field appearance="fill" class="fila">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre">
+                    <mat-error *ngIf="Nombre?.hasError('required')">El nombre es obligatorio</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="fila">
+                    <mat-label>Apellido</mat-label>
+                    <mat-error *ngIf="Nombre?.hasError('required')">El apellido es obligatorio</mat-error>
+                    <input matInput formControlName="apellido">
+                
+                    
+                    </mat-form-field>
+
+                    <div class="filamodulo">
+                    
+                        <mat-form-field appearance="fill" class="tipo">
+                            <mat-label>Tipo de documento</mat-label>
+                            <select matNativeControl formControlName="tipoDocumento">
+                              <option value="DNI">DNI</option>
+                              <option value="LE">LE</option>
+                              <option value="LC">LC</option>
+                              <option value="CI">CI</option>
+                              <option value="otro">otro</option>
+                            </select>
+                        </mat-form-field>
+                        
+                        <mat-form-field appearance="fill" class="documento">
+                            <mat-label>Número de documento</mat-label>
+                            <input matInput formControlName="numeroDocumento">
+                            <mat-error *ngIf="NumeroDocumento?.hasError('required')">El número de documento es obligatorio</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <mat-form-field hintLabel="Max 250 caracteres" appearance="fill" class="fila">
+                            
+                            <mat-label>Descripción</mat-label>
+                            <textarea matInput #input maxlength="250" formControlName="descripcion"  placeholder="Ej. UX/UI Designer & Front-End Dev"></textarea>
+                            <mat-hint align="end">{{input.value?.length || 0}}/250</mat-hint>
+                            <mat-error *ngIf="Descripcion?.hasError('required')">La descripción es obligatoria</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill" class="fila">
+                            <mat-label>Dirección</mat-label>
+                            <input matInput formControlName="direccion"  placeholder="Av. San Martín 123">
+                        </mat-form-field>
+
+                        <div class="filamodulo">
+                            <mat-form-field appearance="fill" class="provincia">
+                                <mat-label>Ciudad</mat-label>
+                                <input matInput formControlName="ciudad">
+                                <mat-error *ngIf="Ciudad?.hasError('required')">La ciudad es obligatoria</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill" class="cp">
+                                <mat-label>Código postal</mat-label>
+                                <input matInput formControlName="codigoPostal" type="number">
+                                <mat-error *ngIf="CodigoPostal?.hasError('required')">El CP es obligatorio</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                            <mat-form-field appearance="fill" class="fila">
+                            <mat-label>País</mat-label>
+                            
+                                <select matNativeControl formControlName="pais">
+                                <option *ngFor="let pais of paises" [value]="pais" >
+                                {{pais}}
+                                </option>
+                            </select>
+                            <mat-error *ngIf="Pais?.hasError('required')">El país es obligatorio</mat-error>
+                            </mat-form-field>
+                        
+                        <p class="check">
+                            <mat-checkbox >Buscando trabajo actualmente</mat-checkbox>
+                        </p>
+
+        <div>
+            <button mat-button matStepperNext [disabled]="firstFormGroup.invalid" mat-raised-button color="primary" class="sub">Siguiente</button>
+        </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" label="Datos de cuenta" >
+        <form [formGroup]="secondFormGroup">
+            <mat-form-field appearance="fill" class="fila">
+                <mat-label>Email</mat-label>
+                <mat-error *ngIf="Email?.hasError('email')">El formato es incorrecto</mat-error>
+                <mat-error *ngIf="Email?.hasError('required')">El email es obligatorio</mat-error>
+                <mat-error *ngIf="Email?.hasError('mail')">El email ya está registrado</mat-error>
+                <input matInput formControlName="email">
+                
+                </mat-form-field>
+
+                <mat-form-field hintLabel="Min 6 caracteres" appearance="fill" class="fila">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="Password?.hasError('required')">La contraseña es obligatoria</mat-error>
+                    <mat-error *ngIf="Password?.hasError('pattern')">Debe incluir, al menos, una letra, un número y un caracter especial</mat-error>
+                  </mat-form-field>
+                
+
+                  <mat-form-field appearance="fill" class="fila">
+                    <mat-label>Repetir contraseña</mat-label> 
+                    <input matInput [type]="hideDos ? 'password' : 'text'" formControlName="repassword">
+                    <mat-error *ngIf="!secondFormGroup.controls['repassword'].hasError('passwordCoincide')">Las contraseñas no coinciden</mat-error>
+                    <button mat-icon-button matSuffix (click)="hideDos = !hideDos" [attr.aria-label]="'HideDos password'" [attr.aria-pressed]="hideDos">
+                      <mat-icon>{{hideDos ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field> 
+        
+        <div>
+            <button mat-button matStepperPrevious>Anterior</button>
+            <button mat-button matStepperNext (click)="guardarUsuario()" [disabled]="secondFormGroup.invalid || firstFormGroup.invalid">Registrate</button>
+        </div>
+        </form>
+    </mat-step>
+    </mat-stepper>
+</div>

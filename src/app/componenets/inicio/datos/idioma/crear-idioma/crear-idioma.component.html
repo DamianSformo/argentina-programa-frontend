@@ -1,0 +1,50 @@
+<div class="nav">
+    <h2>Añadir idioma</h2>
+    <button mat-icon-button (click)="onNoClick()">
+      <mat-icon>close</mat-icon>
+    </button> 
+     
+   
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="guardarIdioma()" class="form">
+    
+    <div mat-dialog-content>
+
+      
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Idioma</mat-label>
+      <input type="text"
+      required
+      formControlName="idioma"
+           placeholder="Elegí un idioma"
+           matInput
+           [formControl]="myControl" 
+           [matAutocomplete]="auto">
+           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option" >
+              {{option}}
+            </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Competencia</mat-label>
+        <mat-error *ngIf="Competencia?.hasError('required')">La competencia del idioma es obligatoria</mat-error>
+        <mat-select required formControlName="competencia">
+          <mat-option value="Competencia básica">Competencia básica</mat-option>
+          <mat-option value="Competencia básica limitada">Competencia básica limitada</mat-option>
+          <mat-option value="Competencia básica profesional">Competencia básica profesional</mat-option>
+          <mat-option value="Competencia profesional completa">Competencia profesional completa</mat-option>
+          <mat-option value="Competencia biligüe o nativa">Competencia biligüe o nativa</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+      
+  
+  </div>
+  
+    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary" class="sub">Guardar</button>
+  
+  </form>

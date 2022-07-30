@@ -1,0 +1,104 @@
+<div class="nav">
+  <h2>Añadir educación</h2>
+  <button mat-icon-button (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button> 
+</div> 
+
+<form [formGroup]="form" (ngSubmit)="guardarEducacion()" class="form"> 
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill" class="item">
+        <mat-label>Titulo</mat-label>
+        <input matInput formControlName="titulo" placeholder="Ej. Licenciado en Administración de Empresa">
+        <mat-error *ngIf="Titulo?.hasError('required')">El título es obligatorio</mat-error> 
+        <mat-error *ngIf="Titulo?.hasError('minlength')">El título es demasiado corto</mat-error>
+        <mat-error *ngIf="Titulo?.hasError('maxlength')">El título es demasiado largo</mat-error>
+      </mat-form-field>
+
+    <mat-form-field appearance="fill" class="item">
+      <mat-label>Disciplina</mat-label>
+      <input matInput  formControlName="disciplina" placeholder="Ej. Economía">
+      <mat-error *ngIf="Disciplina?.hasError('required')">La disciplina es obligatoria</mat-error>
+      <mat-error *ngIf="Disciplina?.hasError('minlength')">La disciplina es demasiada corta</mat-error>
+      <mat-error *ngIf="Disciplina?.hasError('maxlength')">La disciplina es demasiada larga</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="item">
+      <mat-label>Nota</mat-label>
+      <mat-error *ngIf="Nota?.hasError('min')">La nota debe ser mayor a 0</mat-error>
+      <input matInput  formControlName="nota" type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="item">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput  formControlName="descripcion"></textarea>
+    </mat-form-field>
+
+    <div class="item">
+      <div class="anios">
+        <mat-form-field appearance="fill" class="anio">
+          <mat-label>Año de inicio</mat-label>
+          <mat-select formControlName="inicio">
+            <mat-option *ngFor="let anio of anios" [value]="anio" >
+              {{anio}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="anio">
+          <mat-label>Año de finalización</mat-label>
+          <mat-error *ngIf="!form.controls['finalizacion'].hasError('anioMayor')">El año de finalización no puede ser menor al de inicio</mat-error>
+          <mat-select [disabled]="disableSelect.value" formControlName="finalizacion">
+            <mat-option *ngFor="let anio of anios" [value]="anio" >
+              {{anio}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+      <p class="check">
+        <mat-checkbox [formControl]="disableSelect">Cursando actualmente</mat-checkbox>
+      </p>
+    </div>
+
+    <mat-form-field class="example-full-width"  class="item" appearance="fill">
+      <mat-label>Institución</mat-label>
+      <input matInput
+      required
+      formControlName="institucion"
+             aria-label="State"
+             [matAutocomplete]="auto"
+             [formControl]="institucionCtrl">
+             
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let institucion of filteredInstituciones | async" [value]="institucion.nombre">
+          <img class="example-option-img" aria-hidden [src]="institucion.img" height="25">
+          <span>{{institucion.nombre}}</span> |
+          <small>{{institucion.pais}}</small>
+        </mat-option>
+      </mat-autocomplete>
+      
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!nombreInstituciones.includes(form.value.institucion)" appearance="fill" class="item">
+      <mat-label>País</mat-label>
+      <mat-select formControlName="pais">
+        <mat-option *ngFor="let pais of paises" [value]="pais" >
+          {{pais}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="Pais?.hasError('required')">El país es obligatorio</mat-error>
+    </mat-form-field>
+ 
+    <mat-form-field *ngIf="!nombreInstituciones.includes(form.value.institucion)" appearance="fill" class="item">
+      <mat-label>Ciudad</mat-label>
+      <input matInput  formControlName="ciudad"  placeholder="Ej. Bariloche">
+    </mat-form-field>
+
+  </div>
+
+  <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary" class="sub">Guardar</button>
+
+</form>
+
+

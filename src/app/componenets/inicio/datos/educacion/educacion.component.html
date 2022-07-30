@@ -1,0 +1,55 @@
+<section class="tarjeta" id="sec-educacion">
+    <div class="blobo"> 
+        <div class="encabezado">
+          <h3 class="educacion">Educación</h3>
+           <div>
+                <ul *ngIf="currentUser" class="botones">
+                    <li>
+                        <button mat-icon-button (click)="openDialog()" >
+                            <mat-icon >add</mat-icon>
+                        </button>
+                    </li> 
+                    <li>
+                        <button mat-icon-button routerLink="/inicio/educacion" >
+                            <mat-icon>drive_file_rename_outline</mat-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="descripciones">
+            <ul>
+                <li *ngFor="let educacionInicioDto of educacionInicioDto">
+                   
+                    <div class="tarj">
+                        <div class="elemento" >
+                            <div class="foto">
+                                <img src={{educacionInicioDto.institucionImg}}>
+                            </div>
+                            <div class="descripcion">
+                                <h5 class="titulo">{{educacionInicioDto.titulo}}</h5>
+                                <p id="texto-uno">{{educacionInicioDto.institucionNombre}} - {{educacionInicioDto.disciplina}} </p>
+                                
+                                <div class="fecha">
+                              
+                                        
+                                    <span class="texto-dos">{{educacionInicioDto.inicio}} - </span>
+                                    <span class="texto-dos" *ngIf="educacionInicioDto.actualmenteCursando">Actualidad</span>
+                                    <span class="texto-dos" *ngIf="!educacionInicioDto.actualmenteCursando">{{educacionInicioDto.finalizacion}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linea">
+                        <hr>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div> 
+    
+</section>
+ 

@@ -1,0 +1,35 @@
+<div class="nav">
+    <h2>Modificar idioma</h2>
+    <button mat-icon-button (click)="onNoClick()">
+      <mat-icon>close</mat-icon>
+    </button> 
+     
+  
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="agregarIdioma()" class="form">
+    
+    <div mat-dialog-content>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Idioma</mat-label>
+        <input matInput formControlName="nombreIdioma">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Competencia</mat-label>
+      <mat-error *ngIf="Competencia?.hasError('required')">La competencia del idioma es obligatoria</mat-error>
+      <mat-select disableRipple required formControlName="competenciaIdioma">
+        <mat-option value="Competencia básica">Competencia básica</mat-option>
+        <mat-option value="Competencia básica limitada">Competencia básica limitada</mat-option>
+        <mat-option value="Competencia básica profesional">Competencia básica profesional</mat-option>
+        <mat-option value="Competencia profesional completa">Competencia profesional completa</mat-option>
+        <mat-option value="Competencia biligüe o nativa">Competencia biligüe o nativa</mat-option>
+      </mat-select>
+  </mat-form-field>
+  
+  </div>
+  
+    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary" class="sub">Guardar</button>
+  
+  </form>

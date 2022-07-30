@@ -1,0 +1,55 @@
+
+
+<div class="nav">
+  <h2>Editar Presentación</h2>
+  <button mat-icon-button (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button> 
+    
+
+</div>
+
+<form  [formGroup]="form" (ngSubmit)="guardarPresentacion()"  class="form">
+ 
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill" class="item">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre">
+        <mat-error *ngIf="Nombre?.hasError('required')">El nombre es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="item">
+      <mat-label>Apellido</mat-label>
+      <input matInput  formControlName="apellido">
+      <mat-error *ngIf="Apellido?.hasError('required')">El apellido es obligatorio</mat-error>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 250 caracteres" appearance="fill" class="item">
+      <mat-label>Descripción</mat-label>
+      <mat-error *ngIf="Descripcion?.hasError('required')">La descripción es obligatoria</mat-error>
+      <textarea matInput #input maxlength="250" formControlName="descripcion"></textarea>
+      <mat-hint align="end">{{input.value?.length || 0}}/250</mat-hint>
+     
+  </mat-form-field>
+
+    <mat-form-field appearance="fill" class="item">
+      <mat-label>País</mat-label>
+      <input matInput  formControlName="pais">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="item">
+      <mat-label>Ciudad</mat-label>
+      <input matInput  formControlName="ciudad">
+    </mat-form-field>
+
+    <p class="check">
+      <mat-checkbox formControlName="buscandoTrabajo">Buscando trabajo</mat-checkbox>
+     
+    </p>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary" class="sub">Guardar</button>
+
+</form>
+
+

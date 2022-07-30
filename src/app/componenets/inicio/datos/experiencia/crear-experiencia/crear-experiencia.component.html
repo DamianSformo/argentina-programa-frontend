@@ -1,0 +1,131 @@
+<div class="nav">
+    <h2>Añadir experiencia</h2>
+    <button mat-icon-button (click)="onNoClick()">
+      <mat-icon>close</mat-icon>
+    </button> 
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="guardarExperiencia()" class="form">
+
+    <div mat-dialog-content>
+      <mat-form-field appearance="fill" class="item">
+          <mat-label>Cargo</mat-label>
+          <input matInput formControlName="cargo">
+          <mat-error *ngIf="Cargo?.hasError('required')">El cargo es obligatorio</mat-error>
+          <mat-error *ngIf="Cargo?.hasError('minlength')">El cargo es demasiada corto</mat-error>
+          <mat-error *ngIf="Cargo?.hasError('maxlength')">El cargo es demasiada largo</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="item">
+        <mat-label>Sector</mat-label>
+        <input matInput  formControlName="sector">
+        <mat-error *ngIf="Sector?.hasError('required')">El sector es obligatorio</mat-error>
+        <mat-error *ngIf="Sector?.hasError('minlength')">El sector es demasiado corto</mat-error>
+        <mat-error *ngIf="Sector?.hasError('maxlength')">El sector es demasiado largo</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="item">
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option value="Jornada completa">Jornada completa</mat-option>
+          <mat-option value="Media jornada">Media jornada</mat-option>
+          <mat-option value="Independiente">Independiente</mat-option>
+          <mat-option value="Contrato temporal">Contrato temporal</mat-option>
+          <mat-option value="Prácticas">Prácticas</mat-option>
+          <mat-option value="Voluntariado">Voluntariado</mat-option>
+        </mat-select> 
+        <mat-error *ngIf="Tipo?.hasError('required')">El tipo de trabajo es obligatorio</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="item">
+        <mat-label>Nombre de la Empresa</mat-label>
+        <input matInput  formControlName="nombreDeEmpresa">
+        <mat-error *ngIf="NombreDeEmpresa?.hasError('required')">El nombre de la empresa es obligatorio</mat-error>
+        <mat-error *ngIf="NombreDeEmpresa?.hasError('minlength')">El nombre de la empresa es demasiado corto</mat-error>
+        <mat-error *ngIf="NombreDeEmpresa?.hasError('maxlength')">El nombre de la empresa es demasiado largo</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="item">
+        <mat-label>Ubicacion</mat-label>
+        <input matInput  formControlName="ubicacion" placeholder="Ej. Catamarca, Argentina">
+        <mat-error *ngIf="Ubicacion?.hasError('required')">La ubicación de la empresa es obligatoria</mat-error>
+        <mat-error *ngIf="Ubicacion?.hasError('minlength')">La ubicación de la empresa es demasiada corta</mat-error>
+        <mat-error *ngIf="Ubicacion?.hasError('maxlength')">La ubicación de la empresa es demasiada larga</mat-error>
+      </mat-form-field> 
+  
+      <span>Fecha de inicio*</span>
+      <div class="item">
+        <div class="anios">
+          <mat-form-field appearance="fill" class="anio">
+            <mat-label>Mes de inicio</mat-label>
+            <mat-error *ngIf="MesDeInicio?.hasError('required')">El mes de inicio es obligatorio</mat-error>
+            <mat-select formControlName="mesDeInicio">
+              <mat-option value="ene.">Enero</mat-option>
+              <mat-option value="feb.">Febrero</mat-option>
+              <mat-option value="mar.">Marzo</mat-option>
+              <mat-option value="abr.">Abril</mat-option>
+              <mat-option value="may.">Mayo</mat-option>
+              <mat-option value="jun.">Junio</mat-option>
+              <mat-option value="jul.">Julio</mat-option>
+              <mat-option value="ago.">Agosto</mat-option>
+              <mat-option value="sep.">Septiembre</mat-option>
+              <mat-option value="oct.">Octubre</mat-option>
+              <mat-option value="nov.">Noviembre</mat-option>
+              <mat-option value="dic.">Diciembre</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="anio">
+            <mat-label>Año de inicio</mat-label>
+            <mat-error *ngIf="AnioDeInicio?.hasError('required')">El año de inicio es obligatorio</mat-error>
+            <mat-select formControlName="anioDeInicio">
+              <mat-option *ngFor="let anio of anios" [value]="anio" >
+                {{anio}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <span>Fecha de finalización</span>
+        <div class="anios">
+          <mat-form-field appearance="fill" class="anio">
+            <mat-label>Mes de finalización</mat-label>
+            <mat-select [disabled]="disableSelect.value" formControlName="mesDeFinalizacion">
+              <mat-option value="ene.">Enero</mat-option>
+              <mat-option value="feb.">Febrero</mat-option>
+              <mat-option value="mar.">Marzo</mat-option>
+              <mat-option value="abr.">Abril</mat-option>
+              <mat-option value="may.">Mayo</mat-option>
+              <mat-option value="jun.">Junio</mat-option>
+              <mat-option value="jul.">Julio</mat-option>
+              <mat-option value="ago.">Agosto</mat-option>
+              <mat-option value="sep.">Septiembre</mat-option>
+              <mat-option value="oct.">Octubre</mat-option>
+              <mat-option value="nov.">Noviembre</mat-option>
+              <mat-option value="dic.">Diciembre</mat-option>
+            </mat-select> 
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="anio">
+            <mat-label>Año de finalización</mat-label>
+            <mat-error *ngIf="!form.controls['anioDeFinalizacion'].hasError('anioMayor')">El año de finalización no puede ser menor al de inicio</mat-error>
+            <mat-select [disabled]="disableSelect.value" formControlName="anioDeFinalizacion">
+              <mat-option *ngFor="let anio of anios" [value]="anio" >
+                {{anio}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <p class="check">
+          <mat-checkbox [formControl]="disableSelect">Actualmente en el cargo</mat-checkbox>
+        </p>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary" class="sub">Guardar</button>
+  
+  </form>
+  
+  
+  

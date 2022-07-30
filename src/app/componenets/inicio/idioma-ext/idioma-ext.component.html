@@ -1,0 +1,49 @@
+<section class="tarjeta" id="sec-educacion">
+    <div class="blobo">
+
+        <div class="encabezado">
+            <div class="grupo">
+                <button mat-icon-button routerLink="/inicio/datos" >
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <h3 class="educacion">Idiomas</h3>
+            </div>
+            <div>
+                <button mat-icon-button (click)="openDialog()" >
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="descripciones">
+            <ul>
+                <li *ngFor="let idioma of idioma" class="tarj">
+                    <div class="conocimientos" >
+                        
+                    
+                        <div class="texto">
+                            <p class="conocimiento">{{idioma.nombreIdioma}}</p>
+                            <p >{{idioma.competenciaIdioma}}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button mat-icon-button>
+                            <mat-icon class="modificar" (click)="openDialogg(idioma)" >drive_file_rename_outline</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon class="delete" (click)="eliminarIdioma(idioma)">delete</mat-icon>
+                        </button>
+                    </div>
+                    
+                </li>
+                
+
+                 
+
+
+            </ul>
+        </div>
+    </div> 
+    
+</section>
+ 

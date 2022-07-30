@@ -1,0 +1,66 @@
+<section class="tarjeta" id="sec-educacion">
+    <div class="blobo">
+        <div class="encabezado">
+            <div class="grupo">
+                <button mat-icon-button routerLink="/inicio/datos" >
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <h3 class="educacion">Educación</h3>
+            </div>
+          
+           <div>
+                <button mat-icon-button (click)="openDialog()" >
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="descripciones">
+            <ul>
+                <li *ngFor="let educacion of educacionCompleto">
+                   
+                    <div class="tarj">
+                        <div class="elemento" >
+
+                            <div class="foto">
+                                <img src={{educacion.institucion.img}}>
+                            </div>
+
+                            <div class="descripcion">
+                                <div>
+                                    <h5 class="titulo">{{educacion.titulo}}</h5>
+                                    <p id="texto-uno">{{educacion.institucion.nombre}} - {{educacion.disciplina}} </p>
+                                    
+                                    <div class="fecha">
+                                        <span class="texto-dos">{{educacion.inicio}} - </span>
+                                        <span class="texto-dos" *ngIf="educacion.actualmenteCursando">Actualidad</span>
+                                        <span class="texto-dos" *ngIf="!educacion.actualmenteCursando">{{educacion.finalizacion}}</span>
+                                    </div>
+                               </div>
+
+                               
+
+                            </div>
+                        </div> 
+
+                        <div>
+                            <button mat-icon-button>
+                                <mat-icon class="modificar" (click)="openDialogg(educacion)">drive_file_rename_outline</mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                                <mat-icon class="delete" (click)="eliminarEducacion(educacion)">delete</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="linea">
+                        <hr>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div> 
+    
+</section>
+ 

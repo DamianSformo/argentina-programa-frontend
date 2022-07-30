@@ -1,0 +1,58 @@
+<section class="tarjeta" id="sec-educacion">
+
+    <div class="blobo">
+
+        <div class="encabezado">
+          <h3 class="educacion">Experiencia</h3>
+           <div>
+                <ul *ngIf="currentUser" class="botones">
+                    <li>
+                        <button mat-icon-button (click)="openDialog()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </li>
+                    <li>
+                        <button mat-icon-button routerLink="/inicio/experiencia" >
+                            <mat-icon >drive_file_rename_outline</mat-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="descripciones">
+            <ul>
+                <li *ngFor="let experienciaInicioDto of experienciaInicioDto" >
+                    
+                    <div class="tarj"> 
+                        <div class="elemento" >
+                            <div class="foto">
+                                <img src="">
+                            </div>
+                            <div class="descripcion">
+                                <h5 class="titulo">{{experienciaInicioDto.cargo}}</h5>
+                                <p id="texto-uno">{{experienciaInicioDto.nombreDeEmpresa}} - {{experienciaInicioDto.tipo}} </p>
+                                
+                           
+                                <div class="fecha">
+                                    <span class="texto-dos">{{experienciaInicioDto.mesDeInicio}} de {{experienciaInicioDto.anioDeInicio}} - </span>
+                                    <span class="texto-dos" *ngIf="experienciaInicioDto.actualmenteEnElCargo">Actualidad</span>
+                                    <span class="texto-dos" *ngIf="!experienciaInicioDto.actualmenteEnElCargo">{{experienciaInicioDto.mesDeFinalizacion}} de {{experienciaInicioDto.anioDeFinalizacion}}</span>
+                                </div>
+
+                                
+
+                                <p class="texto-dos">{{experienciaInicioDto.ubicacionDeEmpresa}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="linea">
+                        <hr>
+                    </div>
+                
+                </li>
+            </ul>
+        </div>
+    </div>   
+</section>    

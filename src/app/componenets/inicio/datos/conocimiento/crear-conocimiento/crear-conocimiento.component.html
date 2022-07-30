@@ -1,0 +1,55 @@
+
+<div class="nav">
+    <h2>Añadir Conocimiento <button class="redondo" matTooltip="Aquí podrás agregar tanto tus competencias técnicas como tus competencias blandas" ><span>?</span></button></h2>
+    <button mat-icon-button (click)="onNoClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+
+<form [formGroup]="form" (ngSubmit)="guardarConocimiento()" class="form">
+
+<mat-form-field class="example-chip-list" appearance="fill">
+  <mat-label>Competencias</mat-label>
+  <mat-chip-list #chipList aria-label="Fruit selection">
+    <mat-chip *ngFor="let conocimiento of conocimiento" 
+      (removed)="remove(conocimiento.id)">
+      {{conocimiento.conocimiento}} 
+    </mat-chip>
+
+    <mat-chip *ngFor="let conocimiento of conocimientoNuevo" 
+      (removed)="remove(conocimiento)">
+      {{conocimiento}} 
+      <button matChipRemove>
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-chip>
+
+    <input 
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="add($event)"
+           formControlName="conocimiento"
+           placeholder="Añadir competencia">     
+  </mat-chip-list>
+
+</mat-form-field>
+
+
+
+<mat-form-field appearance="fill">
+  <mat-label>Tipo</mat-label>
+  <mat-error *ngIf="Tipo?.hasError('required')">El tipo de competencia es obligatorio</mat-error>
+  <mat-select disableRipple required formControlName="tipo">
+    <mat-option value="forum">Competencia/s blanda</mat-option>
+    <mat-option value="handyman">Competencia/s técnica</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<button type="submit" [disabled]="form.invalid" mat-raised-button color="primary" class="sub">Guardar</button>
+
+</form>
+  
+  

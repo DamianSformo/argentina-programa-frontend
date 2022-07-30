@@ -1,0 +1,104 @@
+.tarjeta{
+    margin-top: 0px;
+} 
+
+mat-icon{
+    color:gray;
+    font-weight: 100;
+}
+
+.tarj{
+
+    margin-top: 10px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.jola{
+    margin-top: 10px;
+    font-size: 4px;
+    width: 40px;
+    height: 40px;
+    background-color: #E4E6E9;
+    
+}
+
+.del {
+    font-size: 22px;
+    line-height: 24px;
+    color:E4E6E9
+}
+
+div.titulo{
+    padding-top: 15px;
+
+}
+
+.fecha {
+    display: inline;
+}
+
+img{
+    width: 55px;
+    height: 55px;
+    padding: 0px;
+}
+
+.texto-dos{
+    padding-bottom: 4px;
+}
+
+.tarj{
+    display: flex;
+    justify-content: space-between;
+}
+ 
+mat-icon.delete{
+    color:gray;
+    font-weight: 100;
+    font-size: 22px;
+}
+
+mat-icon.modificar{
+    color:gray;
+    font-weight: 100;
+    font-size: 22px;
+}
+
+.grupo{
+    display: flex;
+    align-items: center;
+}
+
+.educacion{
+    margin-left: 7px;
+}
+
+.descripciones .experiencias{
+    display: flex;
+}
+
+.descripciones .experiencias .foto{
+    margin: 10px;
+    padding: 30px;
+}
+
+.conocimiento{
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.conocimientos{
+    padding-bottom: 5px;
+    padding-top: 7px;
+}
+
+.check{
+    padding-right: 5px;
+}
+
+span{
+    margin-right: 5px;
+    margin-left: 5px;
+}

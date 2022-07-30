@@ -1,0 +1,31 @@
+<div class="head">
+<div class="nav">
+    <div class="logo">
+        <img _ngcontent-ymp-c22="" src="assets/images/APLogo-Invertido.png" width="100px">
+    </div>
+    <div class="botonera">
+        <div class="boton">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon *ngIf="currentUser">sentiment_very_satisfied</mat-icon>
+                <mat-icon *ngIf="!currentUser">sentiment_very_dissatisfied</mat-icon>
+            </button>
+            <h6 *ngIf="currentUser">Mi Perfil</h6>
+            <h6 *ngIf="!currentUser">Iniciar Sesión</h6>
+        </div>
+
+          <mat-menu #menu="matMenu">
+            <div class="cuadro">
+                <p *ngIf="currentUser" class="nombre">{{persona.nombreYApellido}}</p>
+                <p *ngIf="currentUser" class="profesion">{{persona.descripcion}}</p>
+                <div *ngIf="currentUser" class="linea">
+                    <hr>
+                </div>
+                <span *ngIf="!currentUser" class="sesion" (click)="cerrarSesion()" ><a href="/login">Iniciar sesión</a></span> 
+                <span *ngIf="currentUser" class="sesion" (click)="cerrarSesion()" ><a href="/login">Cerrar sesión</a></span> 
+                
+            </div>
+          </mat-menu> 
+    </div>
+</div>
+
+</div>

@@ -1,0 +1,47 @@
+h2{
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 300; 
+}
+
+p{
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.login{
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    width: 300px;
+}
+
+.sub{
+    width: 100%;
+}
+
+.boton{
+    margin-top: 13px;
+    height: 50px;
+}
+
+.error{
+    color: red;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    padding: 3px 0px 3px 0px;
+    margin: 5px 0px 5px 0px;
+
+}
+
+.signo{
+    font-weight: 900;
+}

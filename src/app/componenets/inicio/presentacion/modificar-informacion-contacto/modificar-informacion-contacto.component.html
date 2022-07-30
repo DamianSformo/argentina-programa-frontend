@@ -1,0 +1,71 @@
+
+
+<div class="nav">
+  <h2>Editar información</h2>
+  <button mat-icon-button (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button> 
+</div>
+  
+  <form  [formGroup]="form" (ngSubmit)="guardarPresentacion()"  class="form">
+   
+    <div mat-dialog-content>
+      <mat-form-field appearance="fill" class="item">
+        <mat-label>Email</mat-label>
+        <input matInput 
+        formControlName="email">
+      </mat-form-field>
+      
+      <div class="botones">
+        <mat-slide-toggle
+          [formControl]="toggleEmail">
+          ¿Mostrar Email?
+        </mat-slide-toggle>
+      </div>
+
+      <mat-form-field appearance="fill" class="item">
+        <mat-label>Whatsapp</mat-label>
+        <input matInput 
+        formControlName="numeroWhatsapp">
+      </mat-form-field>
+      
+      <div class="botones">
+        <mat-slide-toggle (click)="clickNumeroWhatsapp()"
+          [formControl]="toggleNumeroWhatsapp">
+          ¿Mostrar Número de Whatsapp?
+        </mat-slide-toggle>
+      </div>
+
+      <mat-form-field appearance="fill" class="item">
+        <mat-label>Dirección</mat-label>
+        <input matInput 
+        formControlName="direccion">
+      </mat-form-field>
+      
+      <div class="botones">
+        <mat-slide-toggle (click)="clickDireccion()"
+          [formControl]="toggleDireccion">
+          ¿Mostrar Dirección?
+        </mat-slide-toggle>
+      </div>
+
+      <mat-form-field appearance="fill" class="item">
+        <mat-label>Linkedin</mat-label>
+        <input matInput 
+        formControlName="linkedin">
+      </mat-form-field>
+      
+      <div class="linkedin">
+        <mat-slide-toggle (click)="clickLinkedin()"
+          [formControl]="toggleLinkedin">
+          ¿Mostrar Linkedin?
+        </mat-slide-toggle>
+      </div>
+    </div>
+  
+    <button type="submit"  mat-raised-button color="primary" class="sub">Guardar</button>
+  
+  </form>
+  
+  
+  

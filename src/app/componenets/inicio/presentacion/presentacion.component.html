@@ -1,0 +1,49 @@
+<section class="tarjeta" id="sec-educacion">
+    <img class="imagen" src={{persona.banner}} alt="">
+    
+    <div class="blobo presentacion" let currentUser>
+        
+        <div class="descripciones">
+            <ul>
+                <li>
+                    <div class="tarj">
+                        <div class="experiencias" >  
+                            <div >
+                                <h2 class="nombre">{{persona.nombre}} {{persona.apellido}}</h2>
+                                <p class="txt">{{persona.descripcion}}</p>
+                                <p class="txt">{{persona.direccion.pais}}, {{persona.direccion.ciudad}}</p>
+
+                                <div class="x" *ngIf="persona.buscandoTrabajo">
+                                <span class="material-icons y">
+                                    manage_search
+                                    </span>
+                                <span class="actualmente" >Buscando trabajo</span>
+                            </div>
+                            
+                                <button *ngIf="persona.verLinkedin || persona.verEmail || persona.verNumeroWhatsapp || persona.verDireccion" mat-stroked-button class="info" (click)="informacionDeContacto(persona)">Información de contacto</button>
+                            </div>
+                        </div>
+                        <button *ngIf="currentUser" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <mat-icon>more_vert</mat-icon>
+                          </button>
+                          <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="editarPresentacion(persona)">
+                              <mat-icon>person</mat-icon>
+                              <span>Editar presentación</span>
+                            </button>
+                            <button mat-menu-item (click)="editarBanner(persona)">
+                              <mat-icon>image</mat-icon>
+                              <span>Editar banner</span>
+                            </button>
+                            <button mat-menu-item (click)="editarInformacionContacto(persona)">
+                              <mat-icon>alternate_email</mat-icon>
+                              <span>Agregar información de contacto</span>
+                            </button>
+                          </mat-menu>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div> 
+    
+</section>

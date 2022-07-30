@@ -1,0 +1,36 @@
+<section class="tarjeta" id="sec-educacion">
+    <div class="blobo"> 
+        <div class="encabezado"> 
+          <h3 class="educacion">Conocimiento</h3>
+           <div>
+                <ul *ngIf="currentUser" class="botones">
+                    <li>
+                        <button mat-icon-button (click)="openDialog()" >
+                            <mat-icon>add</mat-icon>
+                        </button> 
+                    </li>
+                    <li>
+                        <button mat-icon-button routerLink="/inicio/conocimiento" >
+                            <mat-icon>drive_file_rename_outline</mat-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+          </div>
+
+        <div class="descripciones">
+            <ul>
+                <li *ngFor="let personaConocimientoInicioDto of personaConocimientoInicioDto" class="tarj">
+                    <div class="conocimientos" >
+                    
+                        <span class="material-icons check">
+                            {{personaConocimientoInicioDto.tipoConocimiento}}
+                        </span>
+                        <span class="conocimiento">{{personaConocimientoInicioDto.nombreConocimiento}}</span>
+                    </div>  
+                    
+                </li>
+            </ul>
+        </div>
+    </div> 
+</section>

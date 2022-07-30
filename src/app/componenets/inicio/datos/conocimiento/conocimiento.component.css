@@ -1,0 +1,59 @@
+.tarjeta{
+    margin-top: 0px;
+}
+
+mat-icon{
+    color:gray;
+    font-weight: 100;
+}
+
+span{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.tarj{
+    margin-top: 10px;
+    margin-bottom: 14px;
+}
+
+.jola{
+    margin-top: 10px;
+    font-size: 4px;
+    width: 40px;
+    height: 40px;
+    background-color: #E4E6E9;
+}
+
+.del {
+    font-size: 22px;
+    line-height: 24px;
+    color:E4E6E9
+}
+
+div.titulo{
+    padding-top: 15px;
+}
+
+.descripciones .experiencias{
+    display: flex;
+}
+
+.descripciones .experiencias .foto{
+    margin: 10px;
+    padding: 30px;
+}
+
+.conocimiento{
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.conocimientos{
+    padding-bottom: 5px;
+    padding-top: 7px;
+}
+
+.check{
+    padding-right: 5px;
+}

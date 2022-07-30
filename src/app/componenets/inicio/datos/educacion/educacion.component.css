@@ -1,0 +1,51 @@
+.tarjeta{
+    margin-top: 0px;
+} 
+ 
+mat-icon{
+    color:gray;
+    font-weight: 100;
+}
+
+.tarj{
+    margin-top: 10px;
+    margin-bottom: 14px;
+}
+
+.jola{
+    margin-top: 10px;
+    font-size: 4px;
+    width: 40px;
+    height: 40px;
+    background-color: #E4E6E9;
+}
+
+.del {
+    font-size: 22px;
+    line-height: 24px;
+    color:E4E6E9
+}
+
+div.titulo{
+    padding-top: 15px;
+}
+
+.fecha {
+    display: inline;
+}
+
+.foto{
+    display: flex;
+}
+
+img{
+    width: 55px;
+    object-fit: contain;
+    padding: 0px;
+    align-items: baseline;
+}
+
+.texto-dos{
+    padding-bottom: 4px;
+}
+

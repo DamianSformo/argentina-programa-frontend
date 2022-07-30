@@ -1,0 +1,63 @@
+<section class="tarjeta" id="sec-educacion">
+
+    <div class="blobo">
+
+        <div class="encabezado">
+            <div class="grupo">
+                <button mat-icon-button routerLink="/inicio/datos" >
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <h3 class="educacion">Experiencia</h3>
+            </div>
+
+           <div>
+               <button mat-icon-button (click)="openDialog()">
+                   <mat-icon>add</mat-icon>
+               </button>
+            </div>
+        </div>
+
+        <div class="descripciones">
+            <ul>
+                <li *ngFor="let experienciaCompleto of experienciaCompleto" >
+                    
+                    <div class="tarj">
+                        <div class="elemento" >
+                            <div class="foto">
+                                <img src="">
+                            </div>
+                            <div class="descripcion">
+                                <h5 class="titulo">{{experienciaCompleto.cargo}}</h5>
+                                <p id="texto-uno">{{experienciaCompleto.nombreDeEmpresa}} - {{experienciaCompleto.tipo}} </p>
+                                
+                           
+                                <div class="fecha">
+                                    <span class="texto-dos">{{experienciaCompleto.mesDeInicio}} de {{experienciaCompleto.anioDeInicio}} - </span>
+                                    <span class="texto-dos" *ngIf="experienciaCompleto.actualmenteEnElCargo">Actualidad</span>
+                                    <span class="texto-dos" *ngIf="!experienciaCompleto.actualmenteEnElCargo">{{experienciaCompleto.mesDeFinalizacion}} de {{experienciaCompleto.anioDeFinalizacion}}</span>
+                                </div>
+
+                                <p class="texto-dos">{{experienciaCompleto.ubicacion}}</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button mat-icon-button>
+                                <mat-icon class="modificar" (click)="openDialogg(experienciaCompleto)" >drive_file_rename_outline</mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                                <mat-icon class="delete" (click)="eliminarExperiencia(experienciaCompleto)">delete</mat-icon>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="linea">
+                        <hr>
+                    </div>
+                
+                </li>
+            </ul>
+        </div>
+    </div>   
+</section>    

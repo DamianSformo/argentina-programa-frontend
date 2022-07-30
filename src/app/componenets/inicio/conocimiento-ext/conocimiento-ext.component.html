@@ -1,0 +1,45 @@
+<section class="tarjeta" id="sec-educacion">
+    <div class="blobo">
+        <div class="encabezado">
+            <div class="grupo">
+                <button mat-icon-button routerLink="/inicio/datos" >
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <h3 class="educacion">Conocimiento</h3>
+            </div>
+          
+           <div>
+                <button mat-icon-button (click)="openDialog()" >
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
+
+       
+
+        <div class="descripciones">
+            <ul>
+                <li *ngFor="let PersonaConocimientoInicioDto of PersonaConocimientoInicioDto">
+                
+                    <div class="tarj">
+                        <div class="elemento" >
+
+                            <span class="material-icons check">
+                                {{PersonaConocimientoInicioDto.tipoConocimiento}}
+                            </span>
+                            <span class="conocimiento">{{PersonaConocimientoInicioDto.nombreConocimiento}}</span>
+                        </div> 
+
+                        <div>
+                            
+                            <button mat-icon-button>
+                                <mat-icon class="delete" (click)="eliminarConocimiento(PersonaConocimientoInicioDto)">delete</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div> 
+</section>

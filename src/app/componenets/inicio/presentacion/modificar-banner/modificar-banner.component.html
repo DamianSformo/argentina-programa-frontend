@@ -1,0 +1,42 @@
+<div class="nav">
+    <h2>Editar Banner</h2>
+    <button mat-icon-button (click)="onNoClick()">
+      <mat-icon>close</mat-icon>
+    </button> 
+  </div>
+
+
+  <form  [formGroup]="form" (ngSubmit)="guardarPresentacion()"  class="form">
+
+<mat-radio-group 
+    aria-label="Select an option" 
+    formControlName="banner">
+    <div class="bloque">
+    <div class="unidad" class="uno">
+        <mat-radio-button value="assets/images/fondo-tec.jpg"><img class="imagen" src="assets/images/fondo-tec.jpg" alt="">
+        </mat-radio-button>
+    </div>
+
+    <div class="unidad" class="dos">
+        <mat-radio-button value="assets/images/fondo-emp.jpg"><img class="imagen" src="assets/images/fondo-emp.jpg" alt="">
+        </mat-radio-button>
+    </div>
+</div>
+
+<div class="bloque">
+    <div class="unidad" class="tres">
+        <mat-radio-button value="assets/images/fondo-nat.jpg"><img class="imagen" src="assets/images/fondo-nat.jpg" alt="">
+        </mat-radio-button>
+    </div>
+
+    <div class="unidad" class="cuatro">
+        <mat-radio-button value="assets/images/fondo-ond.webp"><img class="imagen" src="assets/images/fondo-ond.webp" alt="">
+        </mat-radio-button>
+    </div>
+    </div>
+</mat-radio-group>
+
+
+<button type="submit" [disabled]="form.invalid" mat-raised-button color="primary" class="sub">Guardar</button>
+
+</form>

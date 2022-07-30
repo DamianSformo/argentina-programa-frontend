@@ -1,0 +1,91 @@
+.tarjeta{
+    margin-top: 0px;
+}
+
+mat-icon{
+    color:gray;
+    font-weight: 100;
+}
+
+.descripciones .experiencias{
+    display: flex;
+}
+
+.descripciones .experiencias .foto{
+    margin: 10px;
+    padding: 30px;
+}
+
+.tarj{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.jola{
+    margin-top: 10px;
+    font-size: 4px;
+    width: 40px;
+    height: 40px;
+    background-color: #E4E6E9;
+    
+}
+
+.del {
+    font-size: 22px;
+    line-height: 24px;
+    color:E4E6E9
+}
+
+div.titulo{
+    padding-top: 25px;
+}
+
+
+
+.imagen{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    
+}
+
+.info{
+    border-radius: 100px;
+    margin-top: 12px;  
+    margin-left: -2px; 
+}
+
+span.info{
+    font-size: 8px;
+}
+
+.txt{
+    font-size: 14px;
+    padding-top: 4px;
+}
+
+.nombre {
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+
+.actualmente{
+    color:slateblue;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.x{
+    display: flex;
+    align-items: center;
+}
+
+.y{
+    color:slateblue;
+    margin-right:5px
+}
+
+.presentacion{
+    margin-top: 15px;
+}

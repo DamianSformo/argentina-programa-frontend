@@ -1,0 +1,43 @@
+<section class="tarjeta" id="sec-educacion">
+    <div class="blobo">
+        <div class="encabezado">
+          <h3 class="educacion">Idioma</h3>
+           <div>
+                <ul *ngIf="currentUser" class="botones">
+                    <li>
+                        <button mat-icon-button (click)="openDialog()" >
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </li>
+                    <li>
+                        <button mat-icon-button routerLink="/inicio/idioma" >
+                            <mat-icon>drive_file_rename_outline</mat-icon>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+          </div>
+        <div class="descripciones">
+            <ul>
+                <li *ngFor="let idioma of idioma" class="tarj">
+                    <div class="conocimientos" >
+                    
+                        <div class="texto">
+                            <p class="conocimiento">{{idioma.nombreIdioma}}</p>
+                            <p >{{idioma.competenciaIdioma}}</p>
+                            
+                        </div>
+                    </div>
+                    
+                </li>
+                
+
+                 
+
+
+            </ul>
+        </div>
+    </div> 
+    
+</section>
+ 

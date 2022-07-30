@@ -1,0 +1,56 @@
+
+
+  <div class="nav">
+    <h1>{{persona.nombreCompleto}}</h1>
+    <button mat-icon-button (click)="onNoClick()">
+      <mat-icon >close</mat-icon>
+    </button> 
+  </div>
+
+<div class="linea">
+    <hr>
+</div>
+
+<h2>Información de contacto</h2> 
+
+<div class="item" *ngIf="persona.verEmail">
+    <span class="material-icons icon">
+        mail_outline
+    </span>
+    <div class="texto">
+        <h3>Email</h3>
+        <p>{{persona.email}}</p>
+    </div>
+</div>
+
+
+
+<div class="item" *ngIf="persona.verNumeroWhatsapp">
+    <span class="material-icons icon">
+        whatsapp
+    </span>
+    <div class="texto">
+        <h3>Whatsapp</h3>
+        <p>{{persona.numeroWhatsapp}}</p>
+    </div>
+</div>
+
+<div class="item" *ngIf="persona.verDireccion && persona.direccion">
+    <span class="material-icons icon">
+        cabin
+    </span>
+    <div class="texto">
+        <h3>Dirección</h3>
+        <p>{{persona.direccion}}</p>
+    </div>
+</div>
+
+<div class="item" *ngIf="persona.verLinkedin">
+    <span class="material-icons icon">
+            language
+    </span>
+    <div class="texto">
+        <h3>LinkedIn</h3>
+        <p>{{persona.linkedin}}</p>
+    </div>
+</div>

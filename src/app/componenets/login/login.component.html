@@ -1,0 +1,31 @@
+
+<div class="login">
+  <h2>Iniciar Sesión</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onEnviar()" class="form">
+    
+    <div  mat-dialog-content>
+      <mat-form-field class="sub" appearance="fill" >
+        <mat-label>Email</mat-label>
+        <input matInput  formControlName="email">
+        <mat-error *ngIf="Email?.hasError('required')">El email es obligatorio</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="sub" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="Password?.hasError('required')">La contraseña es obligatoria</mat-error>
+        <mat-error *ngIf="Password?.hasError('minlength')">La contraseña es demasiado corta</mat-error>
+      </mat-form-field>
+    </div>
+    
+    <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary" class="sub boton">Iniciar Sesión</button>
+    <div class="error" *ngIf="status === 400"><span class="signo">! </span>Usuario y/o contraseña incorrecto</div>
+    <p>¿No tenés cuenta? <a href="/registro">Registrate</a></p>
+
+  </form>
+
+</div>
